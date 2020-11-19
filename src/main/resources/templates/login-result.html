@@ -2,22 +2,20 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Wynik Rejestracji</title>
+    <title>Wynik zalogowania</title>
     <link th:href="@{css/style.css}" href="/static/css/style.css"
           rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
 <div class="container">
     <div id="welcome">
-        <h1>Wynik rejestracji</h1>
+        <h1>Wynik zalogowania</h1>
         <p th:text="${message}"></p>
 
         <div class="sep"></div>
         <div class="center">
 
-            <a href="/register" class="link">Wróć ponownie do rejestracji</a>
 
-            <a href="/login" class="link">Zaloguj się</a>
         </div>
     </div>
 </div>

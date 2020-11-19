@@ -14,14 +14,14 @@ public class UserRequest {
 
     private String validEmail(String email) {
         if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            throw new IllegalArgumentException("zły format maila");
+            throw new IllegalArgumentException("Zły format maila !");
         }
         return email;
     }
 
     private String validPassword(String password) {
         if (password.length() < 5) {
-            throw new IllegalArgumentException("hasło musi posiadać co najmniej 5 znaków");
+            throw new IllegalArgumentException("Hasło musi posiadać co najmniej 5 znaków !");
         }
         return password;
     }

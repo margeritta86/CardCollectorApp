@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja</title>
+    <link th:href="@{css/style.css}" href="/static/css/style.css"
+          rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
-<h1> Zarejestruj się</h1>
-<div>
-<p> Podaj swojego maila:</p>
-    <form action="/register" method="post">
-    <input type="email" name="email" placeholder="kowalski@poczta.com">
-    <p>Podaj swoje hasło: </p>
-    <input type="password" name="password"><br><br>
-    <input type="submit">
+<div class="container">
+    <form action="/register" method="post" id="signup">
+
+        <div class="header">
+
+            <h3>Zarejestruj się</h3>
+
+            <p>Uzupełnij pola, aby się zarejestrować</p>
+
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="inputs">
+
+            <input type="email" name="email" placeholder="e-mail" autofocus/>
+
+            <input type="password" name="password" placeholder="Password"/>
+
+            <input type="submit" id="submit">
+
+        </div>
+
     </form>
 </div>
 </body>
 </html>
+
+
+​
