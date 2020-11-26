@@ -1,6 +1,8 @@
 package com.pokemon.app.service;
 
+import com.pokemon.app.model.Trainer;
 import com.pokemon.app.model.User;
+import com.pokemon.app.repository.TrainerRepository;
 import com.pokemon.app.repository.UserRepository;
 import com.pokemon.app.request.UserRequest;
 import org.springframework.stereotype.Service;
@@ -9,9 +11,11 @@ import org.springframework.stereotype.Service;
 public class RegisterService {
 
     private UserRepository userRepository;
+    private TrainerAccessService trainerAccessService;
 
-    public RegisterService(UserRepository userRepository) {
+    public RegisterService(UserRepository userRepository, TrainerAccessService trainerAccessService) {
         this.userRepository = userRepository;
+        this.trainerAccessService = trainerAccessService;
     }
 
     public void registerUser(UserRequest userRequest) {
@@ -19,7 +23,9 @@ public class RegisterService {
         if (userRepository.existsByEmail(userRequest.getEmail())) {
             throw new RegisterServiceException("Podany użytkownik już istnieje w bazie!");
         }
-        User user = new User(userRequest.getEmail(), userRequest.getPassword());
+        Trainer trainer = new Trainer();
+        User user = new User(userRequest.getEmail(), userRequest.getPassword(),trainer);
+        trainerAccessService.save(trainer);
         userRepository.save(user);
 
     }

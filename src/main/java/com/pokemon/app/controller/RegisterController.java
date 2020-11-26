@@ -2,6 +2,7 @@ package com.pokemon.app.controller;
 
 import com.pokemon.app.request.UserRequest;
 import com.pokemon.app.service.RegisterService;
+import com.pokemon.app.service.RegisterServiceException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,13 +28,16 @@ public class RegisterController {
     @PostMapping("/register")
     public String registerUser(String email, String password, Model model) {
 
-        model.addAttribute("message","Udało się pomyślnie zarejestrować!");//TODO refactor
+        model.addAttribute("message", "Udało się pomyślnie zarejestrować!");//TODO refactor
 
         try {
             UserRequest userRequest = new UserRequest(email, password);
             registerService.registerUser(userRequest);
-        } catch(Exception e){
-            model.addAttribute("message",e.getMessage());
+        } catch (RegisterServiceException e) {
+            model.addAttribute("message", e.getMessage());
+        } catch (Exception e) {
+            model.addAttribute("message","Wystąpił niespodziewany błąd!");
+            e.printStackTrace();
         }
         return "register-result";
 

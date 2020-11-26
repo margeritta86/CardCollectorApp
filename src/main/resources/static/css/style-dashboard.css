@@ -1,0 +1,42 @@
+body {
+    /*background-image: url(http://kreativo.se/backlogin.jpg);*/
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6EA4BB), color-stop(100%,#F0DBA5));
+
+
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    padding-top: 20px;
+}
+
+h1 {
+    color:  #E7E7E6;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.container {
+    width: 800px;
+    margin: 20px auto;
+}
+.center  {
+    text-align:center;
+    margin-bottom:5px;
+}
+
+#dashboard {
+height:500px;
+width:800px;
+margin: auto;
+    max-height:800px;
+    padding: 0px 25px 25px;
+    background: #fff;
+    box-shadow:
+        0px 0px 0px 5px rgba( 255,255,255,0.4 ),
+        0px 4px 20px rgba( 0,0,0,0.33 );
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: table;
+    position: static;
+}

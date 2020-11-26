@@ -30,5 +30,8 @@ public class LoginService {
 
     }
 
+    public User getLoggedUser() {
+        return loggedUser;
+    }
 }
 

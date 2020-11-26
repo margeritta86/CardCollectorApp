@@ -7,8 +7,19 @@
           rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
-<p> koszt boostera 100$</p>
-<input type="submit" value="Kup booster" id="button-buy">
+<div class="container">
+    <div class="center">
+        <form action="/booster" method="post" id="signin">
+            <p> koszt boostera 100$</p>
 
+            <input type="submit" value="Kup booster" id="button-buy">
+        </form>
+    </div>
+    <div th:if="${boughtBooster!=null}">
+        <div th:each="card:${boughtBooster}">
+            <div th:text="${card.name}"></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,12 +1,13 @@
 package com.pokemon.app.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -15,18 +16,28 @@ public class User {
     private String email;
     private String password;
 
+    @OneToOne
+    private Trainer trainer;
 
-    private User() {
+    public User() {
+
     }
 
-    public User(String email, String password) {
+    public User(String email, String password, Trainer trainer) {
         this.email = email;
         this.password = password;
+        this.trainer = trainer;
+
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
     }
 
     public String getPassword() {
         return password;
     }
+
 
     @Override
     public boolean equals(Object o) {
