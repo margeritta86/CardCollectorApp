@@ -1,6 +1,8 @@
 package com.pokemon.app.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,10 +11,15 @@ import java.util.Set;
 @Table(name = "trainers")
 public class Trainer {
 
+    private static final int STARTING_MONEY = 1000;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private int money;
+    private LocalDate createTime;
+    private int money = STARTING_MONEY;
+    private int howMAnyTimesYouAddedMoney;
+    private String name;
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST},fetch = FetchType.EAGER)
     @JoinTable(
@@ -22,11 +29,11 @@ public class Trainer {
     private Set<Card> cards = new HashSet<>();
 
     public Trainer() {
-        money = 1000;
+
     }
 
-    public int getMoney() {
-        return money;
+    public Trainer(String name) {
+        this.name = name;
     }
 
     public void addCard(Card card) {
@@ -40,6 +47,26 @@ public class Trainer {
     public void removeCard(Card card) {
         this.cards.remove(card);
     }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public int getHowMAnyTimesYouAddedMoney() {
+        return howMAnyTimesYouAddedMoney;
+    }
+
+    public int getDaysAfterCreation() {
+        return (int) ChronoUnit.DAYS.between(createTime, LocalDate.now());
+    }
+
+    public void addMoney(){
+        int daysAfterCreation = getDaysAfterCreation();
+        money +=daysAfterCreation*10 - (howMAnyTimesYouAddedMoney*10);
+        howMAnyTimesYouAddedMoney=daysAfterCreation;
+    }
+
+
 
 
 }

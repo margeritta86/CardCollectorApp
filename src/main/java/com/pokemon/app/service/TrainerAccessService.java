@@ -18,13 +18,16 @@ public class TrainerAccessService {
     }
 
     public Optional<Trainer> getLoggedTrainer() {
-
         return Optional.ofNullable(loginService.getLoggedUser().getTrainer());
-
     }
 
     public void save(Trainer trainer) {
         trainerRepository.save(trainer);
+    }
 
+    public void addMoneyToTrainer(){
+        Trainer trainer = getLoggedTrainer().orElseThrow( () -> new TrainerAccessServiceException("Brak zalogowanego użytkownika lub jego trenera"));
+        trainer.addMoney();
+        trainerRepository.save(trainer);
     }
 }

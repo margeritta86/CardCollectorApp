@@ -1,14 +1,14 @@
 body {
     /*background-image: url(http://kreativo.se/backlogin.jpg);*/
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6EA4BB), color-stop(100%,#F0DBA5));
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6EA4BB), color-stop(100%, #F0DBA5));
 
 
-    font-family: "Helvetica Neue", Helvetica, Arial;
-    padding-top: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    margin:0;
 }
 
 h1 {
-    color:  #E7E7E6;
+    color: #E7E7E6;
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 40px;
@@ -16,27 +16,100 @@ h1 {
 }
 
 .container {
-    width: 800px;
-    margin: 20px auto;
-}
-.center  {
-    text-align:center;
-    margin-bottom:5px;
+    margin: 0 0;
 }
 
-#dashboard {
-height:500px;
-width:800px;
-margin: auto;
-    max-height:800px;
-    padding: 0px 25px 25px;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #464646;
+    width:100%;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #d0d0d0;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #C04C4B;
+}
+
+li a:hover:not(.active){ background-color: #C04C4B; }
+
+.active {
+    background-color: #6EA4BB;
+}
+li.right{float:right;}
+
+@media screen and (max-width: 800px) {
+    ul li.right,
+    ul li {float: none;}
+}
+.center {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.dashboard {
+    height: 500px;
+    width: 800px;
+    margin: auto;
+    max-height: 800px;
+    padding: 0 25px 25px;
     background: #fff;
-    box-shadow:
-        0px 0px 0px 5px rgba( 255,255,255,0.4 ),
-        0px 4px 20px rgba( 0,0,0,0.33 );
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4),
+    0 4px 20px rgba(0, 0, 0, 0.33);
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
     display: table;
     position: static;
+    text-align: center;
+
+
+}
+
+.dashboard h3 {
+    color: #6EA4BB;
+    font-size: 16px;
+}
+
+.dashboard h4 {
+    color: #464646;
+    font-size: 14px;
+}
+
+.dashboard p {
+    color: #6EA4BB;
+    font-size: 16px;
+}
+
+.sep {
+    height: 1px;
+    background: #e8e8e8;
+    width: 850px;
+    margin: 0 -25px;
+}
+
+.information{
+    margin-top: 80px;
+    margin-bottom:20px;
+    text-align: center;
+}
+
+.information p{
+    color: #6EA4BB;
+    font-size: 16px;
 }

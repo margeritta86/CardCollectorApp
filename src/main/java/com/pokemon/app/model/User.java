@@ -2,6 +2,10 @@ package com.pokemon.app.model;
 
 
 import javax.persistence.*;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -14,7 +18,9 @@ public class User {
     @GeneratedValue
     private int id;
     private String email;
+    private String name;
     private String password;
+    private LocalDate registerTime;
 
     @OneToOne
     private Trainer trainer;
@@ -27,7 +33,11 @@ public class User {
         this.email = email;
         this.password = password;
         this.trainer = trainer;
+        registerTime = LocalDate.now();
+    }
 
+    public String getEmail() {
+        return email;
     }
 
     public Trainer getTrainer() {
@@ -38,6 +48,9 @@ public class User {
         return password;
     }
 
+    public LocalDate getRegisterTime() {
+        return registerTime;
+    }
 
     @Override
     public boolean equals(Object o) {

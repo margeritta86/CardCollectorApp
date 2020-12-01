@@ -9,9 +9,9 @@ import java.util.Set;
 @Entity
 @Table(name="cards")
 public class Card {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String name;
 
     public Card() {
@@ -23,6 +23,10 @@ public class Card {
 
     public String getName() {
         return name;
+    }
+
+    public String getId() {
+        return id;
     }
 
     @Override

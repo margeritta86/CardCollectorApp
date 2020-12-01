@@ -16,27 +16,14 @@ public class BoosterGenerator {
 
     public BoosterGenerator(CardRepository cardRepository) {
         this.cardRepository = cardRepository;
-        cardRepository.save(new Card("Charmander"));
-        cardRepository.save(new Card("Slowpoke"));
-        cardRepository.save(new Card("Bulbazaur"));
-        cardRepository.save(new Card("Pikaczu"));
-        cardRepository.save(new Card("Xybo"));
-        cardRepository.save(new Card("Fluttershy"));
-        cardRepository.save(new Card("RainbowDash"));
-        cardRepository.save(new Card("Xenon"));
-        cardRepository.save(new Card("Biggi"));
-        cardRepository.save(new Card("Starte"));
-
     }
-
-    //TODO pula kart np 10 szt. i losowanie odpowiedniej ilości
 
     public List<Card> generateBooster() {
         List<Card> booster = new ArrayList<>();
         int count = 0;
         Random random = new Random();
         int allCardsCount = (int) cardRepository.count();
-//TODO zmienić na fora
+        //TODO zmienić na fora
         while (count < 5) {
             Card card = cardRepository.findById(random.nextInt(allCardsCount - 1) + 1).get();
             if (!booster.contains(card)) {

@@ -6,10 +6,17 @@ public class UserRequest {
 
     private String email;
     private String password;
+    private String name;
 
-    public UserRequest(String email, String password) {
+    public UserRequest(String email,String name, String password) {
         this.email = validEmail(email);
         this.password = validPassword(password);
+        this.name = validName(name);
+    }
+
+    public UserRequest(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     private String validEmail(String email) {
@@ -26,6 +33,14 @@ public class UserRequest {
         return password;
     }
 
+    private String validName(String name) {
+        if (name.length() < 5) {
+            throw new IllegalArgumentException("Nazwa musi zawierać co najmniej 5 znaków !");
+        }
+        return name;
+    }
+
+
 
     public String getEmail() {
         return email;
@@ -33,6 +48,14 @@ public class UserRequest {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -48,6 +71,7 @@ public class UserRequest {
         return "UserRequest{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 

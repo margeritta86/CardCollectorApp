@@ -26,12 +26,12 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerUser(String email, String password, Model model) {
+    public String registerUser(String email,String name, String password, Model model) {
 
-        model.addAttribute("message", "Udało się pomyślnie zarejestrować!");//TODO refactor
+        model.addAttribute("message", "Udało się pomyślnie zarejestrować!");
 
         try {
-            UserRequest userRequest = new UserRequest(email, password);
+            UserRequest userRequest = new UserRequest(email,name,password);
             registerService.registerUser(userRequest);
         } catch (RegisterServiceException e) {
             model.addAttribute("message", e.getMessage());
