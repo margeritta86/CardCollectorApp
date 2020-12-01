@@ -1,6 +1,8 @@
 package com.pokemon.app.model;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -10,6 +12,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Data
 @Entity
 @Table(name = "users")
 public class User {
