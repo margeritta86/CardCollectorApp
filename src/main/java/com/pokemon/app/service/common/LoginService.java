@@ -1,4 +1,4 @@
-package com.pokemon.app.service;
+package com.pokemon.app.service.common;
 
 import com.pokemon.app.model.User;
 import com.pokemon.app.repository.UserRepository;
@@ -11,7 +11,7 @@ import java.util.Optional;
 public class LoginService {
 
     private UserRepository userRepository;
-    private User loggedUser;
+    private User loggedUser = null;
 
     public LoginService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -26,12 +26,15 @@ public class LoginService {
             throw new LoginServiceException("Podane hasło jest nieprawidłowe");
         }
         loggedUser = optionalUser.get();
-        System.out.println(loggedUser);
-
     }
 
-    public User getLoggedUser() {
-        return loggedUser;
+    public User getLoggedUserOrThrow() {
+        return getLoggedUser()
+                .orElseThrow(()-> new LoginServiceException("Brak zalogowanego użytkownika"));
+    }
+
+    private Optional<User> getLoggedUser() {
+        return Optional.ofNullable(loggedUser);
     }
 }
 

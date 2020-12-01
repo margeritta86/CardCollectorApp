@@ -1,8 +1,8 @@
 package com.pokemon.app.controller;
 
 import com.pokemon.app.request.UserRequest;
-import com.pokemon.app.service.RegisterService;
-import com.pokemon.app.service.RegisterServiceException;
+import com.pokemon.app.service.common.RegisterService;
+import com.pokemon.app.service.common.RegisterServiceException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

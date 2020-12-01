@@ -1,4 +1,4 @@
-package com.pokemon.app.service;
+package com.pokemon.app.service.common;
 
 import com.pokemon.app.model.Trainer;
 import com.pokemon.app.repository.TrainerRepository;
@@ -18,7 +18,7 @@ public class TrainerAccessService {
     }
 
     public Optional<Trainer> getLoggedTrainer() {
-        return Optional.ofNullable(loginService.getLoggedUser().getTrainer());
+        return Optional.ofNullable(loginService.getLoggedUserOrThrow().getTrainer());
     }
 
     public void save(Trainer trainer) {

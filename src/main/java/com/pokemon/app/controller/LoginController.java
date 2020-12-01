@@ -1,7 +1,7 @@
 package com.pokemon.app.controller;
 
 import com.pokemon.app.request.UserRequest;
-import com.pokemon.app.service.LoginService;
+import com.pokemon.app.service.common.LoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

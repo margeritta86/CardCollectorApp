@@ -34,6 +34,7 @@ public class Trainer {
 
     public Trainer(String name) {
         this.name = name;
+        createTime = LocalDate.now();
     }
 
     public void addCard(Card card) {
@@ -48,12 +49,20 @@ public class Trainer {
         this.cards.remove(card);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getMoney() {
         return money;
     }
 
     public int getHowMAnyTimesYouAddedMoney() {
         return howMAnyTimesYouAddedMoney;
+    }
+
+    public Set<Card> getCards() {
+        return cards;
     }
 
     public int getDaysAfterCreation() {

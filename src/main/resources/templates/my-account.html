@@ -25,18 +25,19 @@
     <h1>Pokemon Card Collector</h1>
     <div class="dashboard">
         <h4>Your name</h4>
-        <p th:text="${user.name}"></p>
+        <p th:text="${model.name}"></p>
         <h4>Your money</h4>
-        <p th:text="${user.money}"></p>
+        <p th:text="${model.money}"></p>
 
         <div class="sep"></div>
+
         <div class="information">
             <h4>User email</h4>
-            <p th:text="${user.email}"></p>
+            <p th:text="${model.email}"></p>
             <h4>Register date</h4>
-            <p th:text="${user.registerTime}"></p>
+            <p th:text="${model.registerTime}"></p>
             <h4>Register duration</h4>
-            <p th:text="${user.daysAfterRegistration}"></p>
+            <p th:text="${model.daysAfterRegistration}"></p>
         </div>
 
     </div>

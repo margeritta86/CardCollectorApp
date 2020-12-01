@@ -2,8 +2,7 @@ package com.pokemon.app.controller;
 
 
 import com.pokemon.app.model.Card;
-import com.pokemon.app.service.BoosterGenerator;
-import com.pokemon.app.service.CardService;
+import com.pokemon.app.service.common.CardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

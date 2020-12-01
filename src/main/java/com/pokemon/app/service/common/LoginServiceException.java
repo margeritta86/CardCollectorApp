@@ -1,4 +1,4 @@
-package com.pokemon.app.service;
+package com.pokemon.app.service.common;
 
 public class LoginServiceException extends RuntimeException {
 

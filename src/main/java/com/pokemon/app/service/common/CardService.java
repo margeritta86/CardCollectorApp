@@ -1,4 +1,4 @@
-package com.pokemon.app.service;
+package com.pokemon.app.service.common;
 
 import com.pokemon.app.model.Card;
 import com.pokemon.app.model.Trainer;
