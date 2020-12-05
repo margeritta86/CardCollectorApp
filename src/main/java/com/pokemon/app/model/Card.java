@@ -13,6 +13,7 @@ public class Card {
     @Id
     private String id;
     private String name;
+    private String imageUrl;
 
     public Card() {
     }
@@ -29,12 +30,16 @@ public class Card {
         return id;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Card card = (Card) o;
-        return id == card.id;
+        return Objects.equals(id, card.id);
     }
 
     @Override

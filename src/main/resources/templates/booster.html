@@ -15,11 +15,14 @@
             <input type="submit" value="Kup booster" id="button-buy">
         </form>
     </div>
+
     <div th:if="${boughtBooster!=null}">
-        <div th:each="card:${boughtBooster}">
+        <div class="booster" th:each="card:${boughtBooster}">
             <div th:text="${card.name}"></div>
+            <img th:src="${card.imageUrl}">
         </div>
     </div>
+
 </div>
 </body>
 </html>
