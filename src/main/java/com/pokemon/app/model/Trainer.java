@@ -5,9 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
@@ -24,12 +22,12 @@ public class Trainer {
     private int howMAnyTimesYouAddedMoney;
     private String name;
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST},fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "trainers_cards", joinColumns = @JoinColumn(name = "trainer_id"),
             inverseJoinColumns = @JoinColumn(name = "card_id")
     )
-    private Set<Card> cards = new HashSet<>();
+    private List<Card> cards = new ArrayList<>();
 
     public Trainer() {
 
@@ -44,7 +42,7 @@ public class Trainer {
         this.cards.add(card);
     }
 
-    public void addCards(Collection<Card> cards){
+    public void addCards(Collection<Card> cards) {
         this.cards.addAll(cards);
     }
 
@@ -64,7 +62,7 @@ public class Trainer {
         return howMAnyTimesYouAddedMoney;
     }
 
-    public Set<Card> getCards() {
+    public List<Card> getCards() {
         return cards;
     }
 
@@ -72,13 +70,19 @@ public class Trainer {
         return (int) ChronoUnit.DAYS.between(createTime, LocalDate.now());
     }
 
-    public void addMoney(){
+    public void addMoney() {
         int daysAfterCreation = getDaysAfterCreation();
-        money +=daysAfterCreation*10 - (howMAnyTimesYouAddedMoney*10);
-        howMAnyTimesYouAddedMoney=daysAfterCreation;
+        money += daysAfterCreation * 10 - (howMAnyTimesYouAddedMoney * 10);
+        howMAnyTimesYouAddedMoney = daysAfterCreation;
     }
 
+    public void subtractMoney(int howMuch) {
+            money -= howMuch;
+    }
 
+    public int getHowManyCards(){
+        return getCards().size();
+    }
 
 
 }

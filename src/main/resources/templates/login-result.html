@@ -7,7 +7,18 @@
           rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
+<ul>
+    <li><a href="/my-account">Moje Konto</a></li>
+    <li><a href="/my-cards">Moje Karty</a></li>
+    <li><a href="/booster">Kup Booster</a></li>
+    <li><a href="#trade">Aukcja</a></li>
+    <li><a href="#about">O Card Collector</a></li>
+</ul>
+<div class="center">
+    <img id="pokeball" th:src="@{icons/pokeball.png}"
+         width="70">
 <div class="container">
+
     <div id="welcome">
         <h1>Wynik zalogowania</h1>
         <p th:text="${message}"></p>

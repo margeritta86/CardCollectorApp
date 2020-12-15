@@ -5,21 +5,47 @@
     <title>Booster</title>
     <link th:href="@{css/style.css}" href="/static/css/style.css"
           rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <div class="center">
-        <form action="/booster" method="post" id="signin">
-            <p> koszt boostera 100$</p>
 
-            <input type="submit" value="Kup booster" id="button-buy">
+<div class="menu">
+    <ul>
+        <li><a href="/my-account">Moje Konto</a></li>
+        <li><a href="/my-cards">Moje Karty</a></li>
+        <li><a href="/booster">Kup Booster</a></li>
+        <li><a href="#trade">Aukcja</a></li>
+        <li><a href="#about">O Card Collector</a></li>
+    </ul>
+    <div class="center">
+        <img id="pokeball" th:src="@{icons/pokeball.png}"
+             width="70">
+    </div>
+    <h2>Kup Booster</h2>
+<div class="container-booster">
+    <div id="welcome">
+        <div id="info">
+            <h4>Trener:</h4>
+            <p th:text="${model.name}"></p>
+            <h4>Ilość pieniędzy</h4>
+            <p th:text="${model.money}"></p>
+            <p th:text="${message}"></p>
+            <div class="sep"></div>
+        </div>
+        <form action="/booster" method="post" id="signin">
+
+
+
+            <div class="sep"></div>
+
+            <input type="submit" value="Kup Booster 5 kart za 100" id="sign">
         </form>
     </div>
 
-    <div th:if="${boughtBooster!=null}">
-        <div class="booster" th:each="card:${boughtBooster}">
-            <div th:text="${card.name}"></div>
-            <img th:src="${card.imageUrl}">
+    <div class="booster" th:if="${boughtBooster!=null}">
+        <div  th:each="card:${boughtBooster}">
+            <img th:src="${card.imageUrl}" >
         </div>
     </div>
 

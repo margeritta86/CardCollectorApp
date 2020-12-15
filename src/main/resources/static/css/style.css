@@ -2,23 +2,108 @@ body {
     /*background-image: url(http://kreativo.se/backlogin.jpg);*/
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6EA4BB), color-stop(100%,#F0DBA5));
 
+    font-family: 'Ubuntu', sans-serif;
+    margin:0;
 
-    font-family: "Helvetica Neue", Helvetica, Arial;
-    padding-top: 20px;
+}
+
+.menu {
+    margin: 0 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #464646;
+    width:100%;
+
+}
+
+li {
+    position: relative;
+
+}
+
+li a {
+    display: block;
+    color: #d0d0d0;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #C04C4B;
+}
+
+li a:hover:not(.active){ background-color: #C04C4B; }
+
+.active {
+    background-color: #6EA4BB;
+}
+li.right{float:right;}
+
+@media screen and (max-width: 800px) {
+    ul li.right,
+    ul li {float: none;}
+}
+#welcome h4 {
+    color: #464646;
+    font-size: 14px;
+    text-align:center;
+}
+
+#welcome p {
+    color: #6EA4BB;
+    font-size: 16px;
 }
 
 .container {
+    padding-top: 20px;
     height: 1000px;
     width: 406px;
-    max-width: 406px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.center  {
-    text-align:center;
-    margin-top:25px;
-    margin-bottom:25px;
+.container-booster {
+    height: 1000px;
+    max-width: 800px;
+    margin: 0 auto;
 }
+
+.center{
+
+    padding-top: 15px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.booster{
+    padding-top:20px;
+    position: absolute;
+    width:800px;
+    margin: 0 auto;
+
+}
+
+.sep {
+    height: 1px;
+    background: #e8e8e8;
+    width: 406px;
+    margin: 0px -25px;
+}
+
+.booster img{
+    float:left;
+    padding: 5px;
+    width: 150px;
+}
+
+
 
 h1 {
     color: #333333;
@@ -26,6 +111,20 @@ h1 {
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
+}
+
+h2 {
+    color: #E7E7E6;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#info{
+    display:inline;
+
+
 }
 
 #welcome {
@@ -124,6 +223,45 @@ h1 {
     text-shadow:
         0px 1px 3px rgba(000,000,000,0.3),
         0px 0px 0px rgba(255,255,255,0);
+    display: table;
+    position: static;
+    clear: both;
+}
+
+#sign {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    background: -moz-linear-gradient(
+            top,
+            #b9c5dd 0%,
+            #a4b0cb);
+    background: -webkit-gradient(
+            linear, left top, left bottom,
+            from(#b9c5dd),
+            to(#a4b0cb));
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #737b8d;
+    -moz-box-shadow:
+            0px 5px 5px rgba(000,000,000,0.1),
+            inset 0px 1px 0px rgba(255,255,255,0.5);
+    -webkit-box-shadow:
+            0px 5px 5px rgba(000,000,000,0.1),
+            inset 0px 1px 0px rgba(255,255,255,0.5);
+    box-shadow:
+            0px 5px 5px rgba(000,000,000,0.1),
+            inset 0px 1px 0px rgba(255,255,255,0.5);
+    text-shadow:
+            0px 1px 3px rgba(000,000,000,0.3),
+            0px 0px 0px rgba(255,255,255,0);
     display: table;
     position: static;
     clear: both;
