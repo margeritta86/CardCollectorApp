@@ -23,7 +23,7 @@ public class PokemonTcgClient {
 
     @PostConstruct
     public void downloadAllCards() {
-        if (cardRepository.count() == 0) {
+        if (cardRepository.count() != 0) {
             return;
         }
         HttpHeaders httpHeaders = restTemplate.headForHeaders(URL);
