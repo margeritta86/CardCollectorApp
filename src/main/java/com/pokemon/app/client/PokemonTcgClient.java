@@ -23,6 +23,9 @@ public class PokemonTcgClient {
 
     @PostConstruct
     public void downloadAllCards() {
+        if (cardRepository.count() == 0) {
+            return;
+        }
         HttpHeaders httpHeaders = restTemplate.headForHeaders(URL);
         int howManyPokemons = Integer.parseInt(Objects.requireNonNull(httpHeaders.getFirst("Total-Count")));
         int howManyPAges = howManyPokemons / 1000 + 1;

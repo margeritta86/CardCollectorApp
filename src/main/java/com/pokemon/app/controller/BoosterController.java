@@ -37,13 +37,14 @@ public class BoosterController {
     public String buyBooster(Model model) {
 
         model.addAttribute("message", "Udało się pomyślnie kupić booster!");
-        model.addAttribute("model", myAccountService.createMyAccountViewModel());
         try {
             List<Card> boughtBooster = cardService.buyBooster();
             model.addAttribute("boughtBooster", boughtBooster);
             trainerAccessService.subtractMoneyFromTrainer(100);
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
+        } finally {
+            model.addAttribute("model", myAccountService.createMyAccountViewModel());
         }
         return "booster";
     }

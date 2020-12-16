@@ -30,4 +30,17 @@ public class BoosterGenerator {
         return booster;
     }
 
+    public List<Card> generateLargeBooster(){
+        List<Card> booster = new ArrayList<>();
+        Random random = new Random();
+        List<Card> cards = cardRepository.findAll();
+        for (int i = 0; i < 10; i++) {
+            Card card = cards.get(random.nextInt(cards.size()-1));
+            if (!booster.contains(card)) {
+                booster.add(card);
+            }
+        }
+        return booster;
+    }
+
 }

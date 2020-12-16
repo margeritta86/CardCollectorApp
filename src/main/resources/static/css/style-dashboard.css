@@ -4,7 +4,7 @@ body {
 
 
     font-family: 'Ubuntu', sans-serif;
-    margin:0;
+    margin: 0;
 }
 
 h1 {
@@ -15,7 +15,7 @@ h1 {
     text-align: center;
 }
 
-h3{
+h3 {
     text-align: left;
     font-size: 14px;
     margin: auto 0;
@@ -32,7 +32,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #464646;
-    width:100%;
+    width: 100%;
 
 }
 
@@ -54,17 +54,25 @@ li a:hover {
     background-color: #C04C4B;
 }
 
-li a:hover:not(.active){ background-color: #C04C4B; }
+li a:hover:not(.active) {
+    background-color: #C04C4B;
+}
 
 .active {
     background-color: #6EA4BB;
 }
-li.right{float:right;}
+
+li.right {
+    float: right;
+}
 
 @media screen and (max-width: 800px) {
     ul li.right,
-    ul li {float: none;}
+    ul li {
+        float: none;
+    }
 }
+
 .center {
     padding-top: 15px;
     text-align: center;
@@ -89,17 +97,18 @@ li.right{float:right;}
 
 }
 
-.booster{
-     padding-top:20px;
-     position: absolute;
-     width:800px;
-     margin: 0 auto;
+.booster {
+    height: fit-content;
+    padding-top: 20px;
+    position: absolute;
+    width: 800px;
+    margin: 0 auto;
 
- }
+}
 
-.booster img{
-    float:left;
-    padding: 5px;
+.booster img {
+    float: left;
+    padding: 15px 5px;
     width: 150px;
 }
 
@@ -125,13 +134,13 @@ li.right{float:right;}
     margin: 0 -25px;
 }
 
-.information{
+.information {
     margin-top: 80px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-.information p{
+.information p {
     color: #6EA4BB;
     font-size: 16px;
 }

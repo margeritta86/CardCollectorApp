@@ -76,13 +76,7 @@ public class Trainer {
         howMAnyTimesYouAddedMoney = daysAfterCreation;
     }
 
-    public void subtractMoney(int howMuch) {
-            money -= howMuch;
+    public void subtractMoney (int howMuch) {
+        money -= howMuch;
     }
-
-    public int getHowManyCards(){
-        return getCards().size();
-    }
-
-
 }
