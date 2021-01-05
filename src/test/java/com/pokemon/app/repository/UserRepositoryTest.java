@@ -42,7 +42,7 @@ class UserRepositoryTest {
         assertTrue(foundUser);
     }
 
-    @Test
+    /*@Test
     void whenExistsByName_thenReturnTrue() {
         //given
         User user = new User();
@@ -52,5 +52,5 @@ class UserRepositoryTest {
         boolean foundUser = userRepository.existsByName("Krzysztof");
         //then
         assertTrue(foundUser);
-    }
+    }*/
 }

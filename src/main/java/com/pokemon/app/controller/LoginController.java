@@ -24,7 +24,7 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("/login")
+ /*   @PostMapping("/login")
     public String loginUser(String email,String password, Model model){
         model.addAttribute("message","Udało się pomyślnie zalogować!");//TODO refactor
         try {
@@ -34,5 +34,7 @@ public class LoginController {
             model.addAttribute("message",e.getMessage());
         }
         return "login-result";
-    }
+    }*/
+
+
 }

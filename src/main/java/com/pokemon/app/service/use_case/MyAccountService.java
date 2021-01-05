@@ -16,7 +16,7 @@ public class MyAccountService {
     }
 
     public MyAccountDto createMyAccountViewModel(){
-        User user = loginService.getLoggedUserOrThrow();
+        User user = loginService.getLoggedUser();
         Trainer trainer  = user.getTrainer();
         return MyAccountDto.builder()
                 .email(user.getEmail())
@@ -28,6 +28,5 @@ public class MyAccountService {
                 .build();
 
     }
-
 
 }

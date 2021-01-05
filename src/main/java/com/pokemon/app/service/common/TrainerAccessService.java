@@ -19,7 +19,7 @@ public class TrainerAccessService {
     }
 
     public Optional<Trainer> getLoggedTrainer() {
-        return Optional.ofNullable(loginService.getLoggedUserOrThrow().getTrainer());
+        return Optional.ofNullable(loginService.getLoggedUser().getTrainer());
     }
 
     public void save(Trainer trainer) {
