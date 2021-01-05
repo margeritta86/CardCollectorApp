@@ -18,13 +18,11 @@ public class BoosterController {
 
     private CardService cardService;
     private MyAccountService myAccountService;
-    private TrainerAccessService trainerAccessService;
 
-    public BoosterController(CardService cardService, MyAccountService myAccountService, TrainerAccessService trainerAccessService) {
+    public BoosterController(CardService cardService, MyAccountService myAccountService) {
         this.cardService = cardService;
-
         this.myAccountService = myAccountService;
-        this.trainerAccessService = trainerAccessService;
+
     }
 
     @GetMapping("/booster")
@@ -40,7 +38,7 @@ public class BoosterController {
         try {
             List<Card> boughtBooster = cardService.buyBooster();
             model.addAttribute("boughtBooster", boughtBooster);
-            trainerAccessService.subtractMoneyFromTrainer(100);
+
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
         } finally {

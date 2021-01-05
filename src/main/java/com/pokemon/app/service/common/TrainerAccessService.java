@@ -44,7 +44,4 @@ public class TrainerAccessService {
 
     }
 
-    public void getHowManyCards(){
-
-    }
 }

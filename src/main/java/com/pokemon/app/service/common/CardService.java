@@ -10,6 +10,8 @@ import java.util.List;
 @Service
 public class CardService {
 
+    private static final int BOOSTER_COST = 100;
+
     private CardRepository cardRepository;
     private BoosterGenerator boosterGenerator;
     private TrainerAccessService trainerAccessService;
@@ -22,6 +24,7 @@ public class CardService {
     }
 
     public List<Card> buyBooster() {
+        trainerAccessService.subtractMoneyFromTrainer(BOOSTER_COST);
         List<Card> boosterCards = boosterGenerator.generateBooster();
         Trainer trainer = trainerAccessService.getLoggedTrainer().orElseThrow(() -> new CardServiceException("Brak trenera zalogowanego użytkownika"));
         trainer.addCards(boosterCards);
