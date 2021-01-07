@@ -2,30 +2,23 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Account</title>
+    <title>Trade Selling</title>
     <link th:href="@{css/style-dashboard.css}" href="/static/css/style-dashboard.css"
           rel="stylesheet" type="text/css" media="screen"/>
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>
-    <h1>Moje konto</h1>
+    <h1>Moje karty</h1>
     <div class="dashboard">
-        <h4>Twoja nazwa</h4>
-        <p th:text="${model.name}"></p>
-        <h4>Stan konta</h4>
-        <p th:text="${model.money}"></p>
-
-        <div class="sep"></div>
-        <div class="information">
-            <h4>E-mail</h4>
-            <p th:text="${model.email}"></p>
-            <h4>Data rejestracji</h4>
-            <p th:text="${model.registerTime}"></p>
-            <h4>Dni od rejestracji</h4>
-            <p th:text="${model.daysAfterRegistration}"></p>
+        <h4>Ilość kart</h4>
+        <p th:text="${howMany}"></p>
+        <div class="booster" th:if="${cards!=null}">
+            <div  th:each="card:${cards}">
+                <img th:src="${card.imageUrl}" >
+            </div>
         </div>
     </div>
 </div>

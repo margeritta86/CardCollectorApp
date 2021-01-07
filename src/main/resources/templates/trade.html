@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Trade</title>
+    <link th:href="@{css/style.css}" href="/static/css/style.css"
+          rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="menu" th:insert="~{fragments/header :: header}"></div>
+<h2>Aukcje</h2>
+<div class="container-booster">
+    <div id="welcome">
+
+            <div class="sep"></div>
+
+        <div class="center">
+
+            <a href="/trade-selling" class="link">Wystaw karty na aukcję</a>
+        </div>
+        <div class="center">
+            <a href="/trade-buying" class="link">Kup karty na aukcji</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

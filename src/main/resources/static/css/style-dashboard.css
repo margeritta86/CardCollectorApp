@@ -1,8 +1,6 @@
 body {
     /*background-image: url(http://kreativo.se/backlogin.jpg);*/
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6EA4BB), color-stop(100%, #F0DBA5));
-
-
     font-family: 'Ubuntu', sans-serif;
     margin: 0;
 }
@@ -22,55 +20,40 @@ h3 {
     display: inline;
 }
 
-.menu {
+.container {
     margin: 0 0;
 }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+#nav {
+    text-align: center;
     background-color: #464646;
-    width: 100%;
-
+    padding: 10px;
 }
 
 li {
-    position: relative;
-
+    display:inline;
 }
 
 li a {
-    display: block;
-    color: #d0d0d0;
-    text-align: center;
-    padding: 14px 16px;
+
     text-decoration: none;
+    padding:10px 30px;
+    color: #d0d0d0;
+
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #C04C4B;
+
 }
 
 li a:hover:not(.active) {
     background-color: #C04C4B;
+
 }
 
 .active {
     background-color: #6EA4BB;
-}
-
-li.right {
-    float: right;
-}
-
-@media screen and (max-width: 800px) {
-    ul li.right,
-    ul li {
-        float: none;
-    }
 }
 
 .center {

@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DataJpaTest
 class TrainerTest {
 
-    @Test
+   /* @Test
     void whenAddCard_thenCardsShouldContainCard() {
         //given
         Trainer trainer = new Trainer();
@@ -27,9 +27,9 @@ class TrainerTest {
 
         //then
         assertTrue(trainer.getCards().contains(card));
-    }
+    }*/
 
-    @Test
+    /*@Test
     void whenAddCards_thenCardsShouldContainCollectionOfCards() {
         //given
         Trainer trainer = new Trainer();
@@ -46,9 +46,9 @@ class TrainerTest {
 
         //then
         assertTrue(trainer.getCards().containsAll(cardsToAdd));
-    }
+    }*/
 
-    @Test
+    /*@Test
     void whenRemoveCard_thenCardsShouldNotContainACard() {
         //given
         Trainer trainer = new Trainer();
@@ -66,7 +66,7 @@ class TrainerTest {
         //then
         assertFalse(trainer.getCards().contains(card1));
 
-    }
+    }*/
 
     @Test
     void whenAddMoney_shouldIncrementedMoneyBy100() {

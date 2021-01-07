@@ -2,26 +2,30 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cards</title>
+    <title>My Account</title>
     <link th:href="@{css/style-dashboard.css}" href="/static/css/style-dashboard.css"
           rel="stylesheet" type="text/css" media="screen"/>
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
 </head>
+
+
 <body>
-<div class="container" th:insert="~{fragments/header :: header}"></div>
-    <h1>Moje karty</h1>
-    <div class="dashboard">
-        <h4>Ilość kart</h4>
-        <p th:text="${howMany}"></p>
-        <div class="booster" th:if="${cards!=null}">
-            <div  th:each="card:${cards}">
-                <img th:src="${card.imageUrl}" >
-            </div>
+<div class="container">
+    <div th:fragment="header">
+        <ul id="nav">
+            <li><a href="/my-account">Moje Konto</a></li>
+            <li><a href="/my-cards">Moje Karty</a></li>
+            <li><a href="/booster">Kup Booster</a></li>
+            <li><a href="/trade">Aukcja</a></li>
+            <li><a href="#about">O Card Collector</a></li>
+        </ul>
+        <div class="center">
+            <img th:src="@{icons/pokeball.png}"
+                 width="70">
         </div>
     </div>
 </div>
-
 </body>
 </html>

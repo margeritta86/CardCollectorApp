@@ -8,20 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
 
-<div class="menu">
-    <ul>
-        <li><a href="/my-account">Moje Konto</a></li>
-        <li><a href="/my-cards">Moje Karty</a></li>
-        <li><a href="/booster">Kup Booster</a></li>
-        <li><a href="#trade">Aukcja</a></li>
-        <li><a href="#about">O Card Collector</a></li>
-    </ul>
-    <div class="center">
-        <img id="pokeball" th:src="@{icons/pokeball.png}"
-             width="70">
-    </div>
+<body>
+<div class="menu" th:insert="~{fragments/header :: header}"></div>
     <h2>Kup Booster</h2>
 <div class="container-booster">
     <div id="welcome">
@@ -40,7 +29,6 @@
             <input type="submit" value="Kup Booster 5 kart za 100" id="sign">
         </form>
     </div>
-
     <div class="booster" th:if="${boughtBooster!=null}">
         <div  th:each="card:${boughtBooster}">
             <img th:src="${card.imageUrl}" >
@@ -48,5 +36,7 @@
     </div>
 
 </div>
+</div>
+
 </body>
 </html>

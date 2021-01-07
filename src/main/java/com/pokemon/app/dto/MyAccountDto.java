@@ -9,14 +9,11 @@ import java.time.LocalDate;
 @Builder
 public class MyAccountDto {
 
-
     private String name;
     private int money;
     private String email;
     private LocalDate registerTime;
     private int daysAfterRegistration;
     private int cardsCount;
-
-
 
 }

@@ -22,12 +22,14 @@ public class Trainer {
     private int howMAnyTimesYouAddedMoney;
     private String name;
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    /*@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "trainers_cards", joinColumns = @JoinColumn(name = "trainer_id"),
             inverseJoinColumns = @JoinColumn(name = "card_id")
-    )
-    private List<Card> cards = new ArrayList<>();
+    )*/
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Map<Card, Integer> cards = new HashMap<>();
+
 
     public Trainer() {
 
@@ -39,15 +41,22 @@ public class Trainer {
     }
 
     public void addCard(Card card) {
-        this.cards.add(card);
+        cards.put(card, cards.getOrDefault(card, 0) + 1);
     }
 
     public void addCards(Collection<Card> cards) {
-        this.cards.addAll(cards);
+        for (Card card : cards) {
+            addCard(card);
+        }
     }
 
     public void removeCard(Card card) {
-        this.cards.remove(card);
+        if (cards.containsKey(card)) {
+            cards.remove(card, cards.get(card) - 1);
+            if (cards.get(card) == 0) {
+                cards.remove(card);
+            }
+        }
     }
 
     public String getName() {
@@ -62,7 +71,7 @@ public class Trainer {
         return howMAnyTimesYouAddedMoney;
     }
 
-    public List<Card> getCards() {
+    public Map<Card,Integer> getCards() {
         return cards;
     }
 
@@ -76,7 +85,7 @@ public class Trainer {
         howMAnyTimesYouAddedMoney = daysAfterCreation;
     }
 
-    public void subtractMoney (int howMuch) {
+    public void subtractMoney(int howMuch) {
         money -= howMuch;
     }
 }

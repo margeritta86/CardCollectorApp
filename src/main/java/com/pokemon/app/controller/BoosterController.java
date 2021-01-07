@@ -2,9 +2,7 @@ package com.pokemon.app.controller;
 
 
 import com.pokemon.app.model.Card;
-import com.pokemon.app.model.NotEnoughMoneyException;
 import com.pokemon.app.service.common.CardService;
-import com.pokemon.app.service.common.TrainerAccessService;
 import com.pokemon.app.service.use_case.MyAccountService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
