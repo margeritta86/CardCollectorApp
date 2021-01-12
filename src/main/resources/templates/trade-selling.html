@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trade Selling</title>
-    <link th:href="@{css/style-dashboard.css}" href="/static/css/style-dashboard.css"
-          rel="stylesheet" type="text/css" media="screen"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+    <div th:insert="~{fragments/headerinc-dashboard :: head}"></div>
+
 </head>
 
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>
-    <h1>Moje karty</h1>
-    <div class="dashboard">
-        <h4>Ilość kart</h4>
-        <p th:text="${howMany}"></p>
-        <div class="booster" th:if="${cards!=null}">
-            <div  th:each="card:${cards}">
-                <img th:src="${card.imageUrl}" >
+<h1>Moje karty</h1>
+<div class="dashboard">
+    <div class="booster" th:if="${cards!=null}">
+        <div th:each="card:${cards.keySet()}">
+            <div class="card">
+                <img th:src="${card.imageUrl}">
+                <form>
+                    <div>
+                        <label>Ilość</label>
+                        <input type="number" th:placeholder="${'max '+cards.get(card)}">
+                    </div>
+                    <div>
+
+                        <label>Cena</label>
+                        <input type="number" placeholder="Twoja cena">
+                    </div>
+                    <input type="submit" value="Wystaw" id="trade">
+
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 </body>

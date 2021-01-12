@@ -22,23 +22,27 @@ public class TrainerAccessService {
         return Optional.ofNullable(loginService.getLoggedUser().getTrainer());
     }
 
+    public Trainer getLoggedTrainerOrThrow() {
+        return getLoggedTrainer().orElseThrow(() -> new TrainerAccessServiceException("Brak zalogowanego użytkownika lub jego trenera"));
+    }
+
     public void save(Trainer trainer) {
         trainerRepository.save(trainer);
     }
 
-    public void addMoneyToTrainer(){
-        Trainer trainer = getLoggedTrainer().orElseThrow( () -> new TrainerAccessServiceException("Brak zalogowanego użytkownika lub jego trenera"));
+    public void addMoneyToTrainer() {
+        Trainer trainer = getLoggedTrainerOrThrow();
         trainer.addMoney();
         trainerRepository.save(trainer);
     }
 
-    public void subtractMoneyFromTrainer(int moneyToSubtract){
-        Trainer trainer = getLoggedTrainer().orElseThrow( () -> new TrainerAccessServiceException("Brak zalogowanego użytkownika lub jego trenera"));
+    public void subtractMoneyFromTrainer(int moneyToSubtract) {
+        Trainer trainer = getLoggedTrainerOrThrow();
 
-        if(trainer.getMoney()>0){
+        if (trainer.getMoney() > 0) {
             trainer.subtractMoney(moneyToSubtract);
             trainerRepository.save(trainer);
-        }else{
+        } else {
             throw new NotEnoughMoneyException("Masz za mało pieniędzy!");
         }
 

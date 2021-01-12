@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Strona główna</title>
-    <link th:href="@{css/style.css}" href="/static/css/style.css"
-          rel="stylesheet" type="text/css" media="screen"/>
+
+    <div class="menu" th:insert="~{fragments/headerinc :: head}"></div>
 
 </head>
 <body>
+<div class="center">
+    <img th:src="@{icons/pokeball.png}"
+         width="70">
+</div>
 <div class="container">
     <div id="welcome">
         <h1>Pokemon Card Collector</h1>

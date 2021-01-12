@@ -14,6 +14,7 @@ public class Card {
     private String id;
     private String name;
     private String imageUrl;
+    private String rarity;
 
     public Card() {
     }
@@ -32,6 +33,10 @@ public class Card {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getRarity() {
+        return rarity;
     }
 
     @Override

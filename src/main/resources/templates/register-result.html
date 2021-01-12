@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Wynik Rejestracji</title>
-    <link th:href="@{css/style.css}" href="/static/css/style.css"
-          rel="stylesheet" type="text/css" media="screen"/>
+
+    <div  th:insert="~{fragments/headerinc :: head}"></div>
+
 </head>
 <body>
+<div class="center">
+    <img th:src="@{icons/pokeball.png}"
+         width="70">
+</div>
 <div class="container">
     <div id="welcome">
         <h1>Wynik rejestracji</h1>
-        <p th:text="${message}"></p>
+
 
         <div class="sep"></div>
-        <div class="center">
 
+            <div class="href">
             <a href="/register" class="link">Wróć ponownie do rejestracji</a>
-
+            </div>
+        <div class="href">
             <a href="/login" class="link">Zaloguj się</a>
         </div>
     </div>

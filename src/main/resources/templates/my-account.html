@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account</title>
-    <link th:href="@{css/style-dashboard.css}" href="/static/css/style-dashboard.css"
-          rel="stylesheet" type="text/css" media="screen"/>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <div  th:insert="~{fragments/headerinc-dashboard :: head}"></div>
 </head>
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>

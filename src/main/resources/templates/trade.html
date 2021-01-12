@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Trade</title>
-    <link th:href="@{css/style.css}" href="/static/css/style.css"
-          rel="stylesheet" type="text/css" media="screen"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+    <div  th:insert="~{fragments/headerinc :: head}"></div>
+
 </head>
 
 <body>
@@ -17,11 +16,11 @@
 
             <div class="sep"></div>
 
-        <div class="center">
+        <div class="href">
 
-            <a href="/trade-selling" class="link">Wystaw karty na aukcję</a>
+            <a id="href" href="/trade-selling" class="link">Wystaw karty na aukcję</a>
         </div>
-        <div class="center">
+        <div class="href">
             <a href="/trade-buying" class="link">Kup karty na aukcji</a>
         </div>
 

@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja</title>
-    <link th:href="@{css/style.css}" href="/static/css/style.css"
-          rel="stylesheet" type="text/css" media="screen"/>
+    <div th:insert="~{fragments/headerinc :: head}"></div>
 </head>
 <body>
+<div class="center">
+    <img th:src="@{icons/pokeball.png}"
+         width="70">
+</div>
 <div class="container">
-    <form action="/register" method="post" id="signup">
+    <form action="/register" method="post" id="signup" th:object="${request}">
 
         <div class="header">
 
@@ -22,13 +25,14 @@
 
         <div class="inputs">
 
-            <input type="email" name="email" placeholder="e-mail" autofocus/>
-
-            <input type="text" name="name" placeholder="Your Name" autofocus/>
-
-            <input type="password" name="password" placeholder="Password"/>
-
+            <input type="email" th:field="${request.email}" placeholder="e-mail" autofocus/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            <input type="text" th:field="${request.name}" placeholder="Your Name" autofocus/>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            <input type="password" th:field="${request.password}" placeholder="Password"/>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
             <input type="submit" id="submit">
+
 
         </div>
 

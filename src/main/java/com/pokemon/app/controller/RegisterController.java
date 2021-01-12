@@ -5,8 +5,14 @@ import com.pokemon.app.service.common.RegisterService;
 import com.pokemon.app.service.common.RegisterServiceException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.validation.Valid;
 
 @Controller
 public class RegisterController {
@@ -20,26 +26,25 @@ public class RegisterController {
     }
 
     @GetMapping("/register")
-    public String getRegisterPage() {
-
+    public String getRegisterPage(Model model) {
+        UserRequest userRequest = new UserRequest();
+        model.addAttribute("request", userRequest);
         return "register";
     }
 
     @PostMapping("/register")
-    public String registerUser(String email,String name, String password, Model model) {
+    public String registerUser(@Valid @ModelAttribute("request") UserRequest userRequest, BindingResult bindingResult, Model model) {//model zawsze na końcu - inaczej nie zadziała :)
 
-        model.addAttribute("message", "Udało się pomyślnie zarejestrować!");
-
+        if (bindingResult.hasErrors()) {
+            return "register";
+        }
         try {
-            UserRequest userRequest = new UserRequest(email,name,password);
             registerService.registerUser(userRequest);
         } catch (RegisterServiceException e) {
-            model.addAttribute("message", e.getMessage());
-        } catch (Exception e) {
-            model.addAttribute("message","Wystąpił niespodziewany błąd!");
-            e.printStackTrace();
+            bindingResult.addError(new FieldError("request", "email", e.getMessage()));
+            return "register";
         }
-        return "register-result";
+        return "redirect:/login";
 
     }
 }

@@ -1,46 +1,27 @@
 package com.pokemon.app.request;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class UserRequest {
 
+    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Zły format maila!")
     private String email;
+    @Size(min = 5, message = "Hasło musi zawierać co najmniej 5 znaków !")
     private String password;
+
+    @Size(min = 5, message = "Nazwa musi zawierać co najmniej 5 znaków !")
     private String name;
 
-    public UserRequest(String email,String name, String password) {
-        this.email = validEmail(email);
-        this.password = validPassword(password);
-        this.name = validName(name);
+    public UserRequest() {
     }
 
     public UserRequest(String email, String password) {
         this.email = email;
         this.password = password;
     }
-
-    private String validEmail(String email) {
-        if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            throw new IllegalArgumentException("Zły format maila !");
-        }
-        return email;
-    }
-
-    private String validPassword(String password) {
-        if (password.length() < 5) {
-            throw new IllegalArgumentException("Hasło musi posiadać co najmniej 5 znaków !");
-        }
-        return password;
-    }
-
-    private String validName(String name) {
-        if (name.length() < 5) {
-            throw new IllegalArgumentException("Nazwa musi zawierać co najmniej 5 znaków !");
-        }
-        return name;
-    }
-
-
 
     public String getEmail() {
         return email;

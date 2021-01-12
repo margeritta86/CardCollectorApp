@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Wynik zalogowania</title>
-    <link th:href="@{css/style.css}" href="/static/css/style.css"
-          rel="stylesheet" type="text/css" media="screen"/>
+
+    <div class="menu" th:insert="~{fragments/headerinc :: head}"></div>
+
 </head>
 <body>
 <ul>
     <li><a href="/my-account">Moje Konto</a></li>
     <li><a href="/my-cards">Moje Karty</a></li>
     <li><a href="/booster">Kup Booster</a></li>
-    <li><a href="#trade">Aukcja</a></li>
+    <li><a href="/trade">Aukcja</a></li>
     <li><a href="#about">O Card Collector</a></li>
 </ul>
 <div class="center">
