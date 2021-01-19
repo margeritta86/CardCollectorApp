@@ -33,7 +33,7 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@Valid @ModelAttribute("request") UserRequest userRequest, BindingResult bindingResult, Model model) {//model zawsze na końcu - inaczej nie zadziała :)
+    public String registerUser(@Valid @ModelAttribute("request") UserRequest userRequest, BindingResult bindingResult) {//model zawsze na końcu - inaczej nie zadziała :)
 
         if (bindingResult.hasErrors()) {
             return "register";

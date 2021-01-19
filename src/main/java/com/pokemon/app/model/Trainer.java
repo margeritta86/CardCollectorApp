@@ -22,14 +22,8 @@ public class Trainer {
     private int howMAnyTimesYouAddedMoney;
     private String name;
 
-    /*@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "trainers_cards", joinColumns = @JoinColumn(name = "trainer_id"),
-            inverseJoinColumns = @JoinColumn(name = "card_id")
-    )*/
     @ElementCollection(fetch = FetchType.EAGER)
     private Map<Card, Integer> cards = new HashMap<>();
-
 
     public Trainer() {
 
@@ -50,9 +44,9 @@ public class Trainer {
         }
     }
 
-    public void removeCard(Card card) {
+    public void removeCard(Card card, int amount) {
         if (cards.containsKey(card)) {
-            cards.remove(card, cards.get(card) - 1);
+           cards.put(card, cards.get(card) - amount);
             if (cards.get(card) == 0) {
                 cards.remove(card);
             }
@@ -87,5 +81,9 @@ public class Trainer {
 
     public void subtractMoney(int howMuch) {
         money -= howMuch;
+    }
+
+    public int howManyOf(Card card){
+        return cards.getOrDefault(card,0);
     }
 }

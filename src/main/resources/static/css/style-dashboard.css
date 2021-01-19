@@ -23,6 +23,7 @@ h3 {
 .container {
     margin: 0 0;
 }
+
 #nav {
     text-align: center;
     background-color: #464646;
@@ -30,13 +31,13 @@ h3 {
 }
 
 li {
-    display:inline;
+    display: inline;
 }
 
 li a {
 
     text-decoration: none;
-    padding:10px 30px;
+    padding: 10px 30px;
     color: #d0d0d0;
 
 }
@@ -80,6 +81,7 @@ li a:hover:not(.active) {
 
 .booster {
     height: fit-content;
+    width: 870px;
     padding-top: 20px;
     margin: auto;
     text-align: center;
@@ -87,26 +89,32 @@ li a:hover:not(.active) {
 
 .cards {
     height: fit-content;
-    width: 600px;
+    width: 870px;
     padding-top: 20px;
-    margin-left:50px;
+    margin-left: 50px;
 
 
 }
-.cards img{
-    float:left;
-    padding: 30px 10px;
+
+.cards img {
+    float: left;
+    padding: 40px 10px;
     width: 250px;
     height: 330px;
-    -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
 }
-
 
 
 .booster img {
+    float: left;
     padding: 30px 10px;
-    display:inline-block;
-    -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease;
+    width: 250px;
+    height: 330px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
 
 
 }
@@ -159,8 +167,9 @@ li a:hover:not(.active) {
     font-size: 16px;
 }
 
-.card{
-    margin:auto 10px;
+.card {
+    margin: auto 10px;
+    float:left;
 
 }
 
@@ -186,18 +195,14 @@ li a:hover:not(.active) {
     -webkit-border-radius: 5px;
     border-radius: 5px;
     border: 1px solid #737b8d;
-    -moz-box-shadow:
-            0 5px 5px rgba(000,000,000,0.1),
-            inset 0 1px 0 rgba(255,255,255,0.5);
-    -webkit-box-shadow:
-            0 5px 5px rgba(000,000,000,0.1),
-            inset 0 1px 0 rgba(255,255,255,0.5);
-    box-shadow:
-            0 5px 5px rgba(000,000,000,0.1),
-            inset 0 1px 0 rgba(255,255,255,0.5);
-    text-shadow:
-            0 1px 3px rgba(000,000,000,0.3),
-            0 0 0 rgba(255,255,255,0);
+    -moz-box-shadow: 0 5px 5px rgba(000, 000, 000, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 5px 5px rgba(000, 000, 000, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 5px 5px rgba(000, 000, 000, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-shadow: 0 1px 3px rgba(000, 000, 000, 0.3),
+    0 0 0 rgba(255, 255, 255, 0);
     display: table;
     position: static;
     clear: both;
@@ -224,9 +229,10 @@ input {
     padding: 13px 10px;
     width: 100px;
     margin-bottom: 5px;
-    box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.1 );
+    box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.1);
     clear: both;
 }
-label{
-    color:#464646;
+
+label {
+    color: #464646;
 }
