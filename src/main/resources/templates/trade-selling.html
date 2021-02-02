@@ -16,15 +16,15 @@
         <div th:each="card:${cards.keySet()}">
             <div class="card">
                 <img th:src="${card.imageUrl}">
-                <form th:action="${'/trade-selling/'+ card.id}" method="post" id="signup" th:object="${request}">
-                    <div class="ilosc">
+                <form>
+                    <div>
                         <label>Ilość</label>
-                        <input type="number" min="1" th:max="${cards.get(card)}"  th:field="*{howMany}" th:placeholder="${'max '+cards.get(card)}">
+                        <input type="number" th:placeholder="${'max '+cards.get(card)}">
                     </div>
-                    <div class="ilosc">
+                    <div>
 
                         <label>Cena</label>
-                        <input type="number" min="1"  th:field="*{howMuch}" placeholder="Twoja cena">
+                        <input type="number" placeholder="Twoja cena">
                     </div>
                     <input type="submit" value="Wystaw" id="trade">
 

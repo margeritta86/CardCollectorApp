@@ -86,7 +86,6 @@ li a:hover:not(.active) {
 .booster {
     height: fit-content;
     width: 870px;
-    padding-top: 20px;
     margin: auto;
     text-align: center;
 }
@@ -95,7 +94,7 @@ li a:hover:not(.active) {
     height: fit-content;
     width: 870px;
     /*//padding-top: 20px;*/
-    margin-left: 50px;
+
 
 
 }

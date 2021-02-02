@@ -49,7 +49,7 @@ public class TradeController {
                                      @RequestParam("size") Optional<Integer> size,Model model) {
 
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(3);
+        int pageSize = size.orElse(6);
 
 
         TradePageDto pageData = tradeService.getPageDto(PageRequest.of(currentPage - 1, pageSize));

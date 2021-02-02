@@ -10,10 +10,12 @@
 <h1>Moje karty</h1>
 
 <div class="dashboard">
-    <div class="cards" th:each="card, iStat : ${cardPage.content}"
+    <div class="booster" th:each="card, iStat : ${cardPage.content}"
          th:style="${iStat.odd}? 'font-weight: bold;'"
          th:alt-title="${iStat.even}? 'even' : 'odd'">
+        <div class="card">
         <img th:src="${card.imageUrl}"/>
+        </div>
     </div>
     <div class="pages">
         <div th:if="${cardPage.totalPages &gt; 0}" class="pagination"
