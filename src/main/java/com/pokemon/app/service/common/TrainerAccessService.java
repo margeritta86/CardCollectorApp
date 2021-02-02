@@ -1,8 +1,12 @@
 package com.pokemon.app.service.common;
 
+import com.pokemon.app.model.Card;
 import com.pokemon.app.model.NotEnoughMoneyException;
 import com.pokemon.app.model.Trainer;
 import com.pokemon.app.repository.TrainerRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,6 +16,7 @@ public class TrainerAccessService {
 
     private LoginService loginService;
     private TrainerRepository trainerRepository;
+
 
     public TrainerAccessService(LoginService loginService, TrainerRepository trainerRepository) {
         this.loginService = loginService;
@@ -32,7 +37,7 @@ public class TrainerAccessService {
 
     public void addMoneyToTrainer() {
         Trainer trainer = getLoggedTrainerOrThrow();
-        trainer.addMoney();
+        trainer.addDailyMoney();
         trainerRepository.save(trainer);
     }
 
@@ -47,5 +52,7 @@ public class TrainerAccessService {
         }
 
     }
+
+
 
 }

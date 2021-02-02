@@ -7,7 +7,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,7 +30,7 @@ class TrainerTest {
         Card card = new Card();
 
         //when
-        trainer.addCard(card);
+       // trainer.addCard(card);
 
         //then
         assertTrue(trainer.getCards().containsKey(card));
@@ -82,7 +81,7 @@ class TrainerTest {
         trainer.setHowMAnyTimesYouAddedMoney(0);
 
         //when
-        trainer.addMoney();
+        trainer.addDailyMoney();
 
         //then
         assertEquals(1100,trainer.getMoney());
@@ -96,7 +95,7 @@ class TrainerTest {
         trainer.setHowMAnyTimesYouAddedMoney(2);
 
         //when
-        trainer.addMoney();
+        trainer.addDailyMoney();
 
         //then
         assertEquals(1080,trainer.getMoney());

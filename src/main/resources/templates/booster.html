@@ -10,7 +10,7 @@
 
 <body>
 <div class="menu" th:insert="~{fragments/header :: header}"></div>
-    <h2>Kup Booster</h2>
+<h2>Kup Booster</h2>
 <div class="container-booster">
     <div id="welcome">
         <div id="info">
@@ -28,11 +28,13 @@
             <input type="submit" value="Kup Booster 5 kart za 100" id="sign">
         </form>
     </div>
+
     <div class="booster" th:if="${boughtBooster!=null}">
-        <div  th:each="card:${boughtBooster}">
-            <img th:src="${card.imageUrl}" >
+        <div th:each="card:${boughtBooster}">
+            <img th:src="${card.imageUrl}">
         </div>
     </div>
+
 
 </div>
 </div>

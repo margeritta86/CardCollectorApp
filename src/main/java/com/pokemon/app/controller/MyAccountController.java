@@ -26,4 +26,8 @@ public class MyAccountController {
         model.addAttribute("model",myAccountService.createMyAccountViewModel());
         return "my-account";
     }
+
+
+
+
 }

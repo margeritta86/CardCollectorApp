@@ -53,4 +53,24 @@ public class Trade {
                 ", cardsAmount=" + cardsAmount +
                 '}';
     }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public int getCardPrice() {
+        return cardPrice;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public int getCardsAmount() {
+        return cardsAmount;
+    }
 }

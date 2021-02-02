@@ -51,8 +51,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login").defaultSuccessUrl("/my-account") //the URL on which the clients should post the login information
                 .usernameParameter("email") //the username parameter in the queryString, default is 'username'
-                .passwordParameter("password"); //the password parameter in the queryString, default is 'password'
-
+                .passwordParameter("password") //the password parameter in the queryString, default is 'password'
+                /*.and().httpBasic()*/
+                .and().logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login");
 
     }
 
@@ -64,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web
+                 web
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**");
     }

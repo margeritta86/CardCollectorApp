@@ -4,17 +4,42 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trade Buying</title>
 
-    <div  th:insert="~{fragments/headerinc-dashboard :: head}"></div>
+    <div th:insert="~{fragments/headerinc-dashboard :: head}"></div>
 
 </head>
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>
-
-    <h1>Moje karty</h1>
-    <div class="dashboard">
-
-
+<h1>Karty z aukcji</h1>
+<div class="dashboard">
+    <div class="booster">
+            <div class="cards" th:each="trade, iStat : ${pageData.trades.content}">
+            <div class="card" >
+                <img th:src="${trade.cardUrl}">
+                <form th:action="${'/trade-buying/'+ trade.tradeId}" method="post" id="signup" >
+                    <div class="ilosc">
+                        <label>Cena</label>
+                        <p th:text="${trade.price}"></p>
+                        <label>Ilość</label>
+                        <p th:text="${trade.howManyCards}"></p>
+                        <label>Sprzedawca</label>
+                        <p th:text="${trade.trainer}"></p>
+                    </div>
+                    <input type="submit" th:value="${trade.yourTrade?'WYCOFAJ':'KUP'}"
+                           th:disabled="${money&lt;trade.price and trade.yourTrade == false}"
+                           id="trade">
+                </form>
+            </div>
+        </div>
     </div>
+    <div class="pages">
+        <div th:if="${pageData.trades.totalPages &gt; 0}" class="pagination"
+             th:each="pageNumber : ${pageNumbers}">
+            <a th:href="@{/trade-buying(size=${pageData.trades.size}, page=${pageNumber})}"
+               th:text=${pageNumber}
+               th:class="${pageNumber==pageData.trades.number + 1} ? active"></a>
+        </div>
+    </div>
+</div>
 </div>
 
 </body>

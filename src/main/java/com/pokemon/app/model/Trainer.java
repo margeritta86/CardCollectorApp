@@ -34,13 +34,13 @@ public class Trainer {
         createTime = LocalDate.now();
     }
 
-    public void addCard(Card card) {
-        cards.put(card, cards.getOrDefault(card, 0) + 1);
+    public void addCard(Card card, int amount) {
+        cards.put(card, cards.getOrDefault(card, 0) + amount);
     }
 
     public void addCards(Collection<Card> cards) {
         for (Card card : cards) {
-            addCard(card);
+            addCard(card,1);
         }
     }
 
@@ -73,10 +73,14 @@ public class Trainer {
         return (int) ChronoUnit.DAYS.between(createTime, LocalDate.now());
     }
 
-    public void addMoney() {
+    public void addDailyMoney() {
         int daysAfterCreation = getDaysAfterCreation();
         money += daysAfterCreation * 10 - (howMAnyTimesYouAddedMoney * 10);
         howMAnyTimesYouAddedMoney = daysAfterCreation;
+    }
+
+    public void addMoney(int moneyToAdd){
+        money+=moneyToAdd;
     }
 
     public void subtractMoney(int howMuch) {

@@ -42,6 +42,10 @@ li a {
 
 }
 
+#logout{
+    margin-left:100px;
+}
+
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #C04C4B;
@@ -64,10 +68,10 @@ li a:hover:not(.active) {
 }
 
 .dashboard {
-    height: 1100px;
+    height: 1000px;
     width: 350px;
     margin: auto;
-    padding: 0 25px 25px;
+    padding: 55px 25px;
     background: #fff;
     box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4),
     0 4px 20px rgba(0, 0, 0, 0.33);
@@ -90,7 +94,7 @@ li a:hover:not(.active) {
 .cards {
     height: fit-content;
     width: 870px;
-    padding-top: 20px;
+    /*//padding-top: 20px;*/
     margin-left: 50px;
 
 
@@ -123,9 +127,9 @@ li a:hover:not(.active) {
     -o-transition: all 0.6s;
     -moz-transition: all 0.6s;
     -webkit-transition: all 0.6s;
-    -moz-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
 }
 
 .dashboard h3 {
@@ -173,6 +177,17 @@ li a:hover:not(.active) {
 
 }
 
+.pages{
+    padding-top:40px;
+    clear:both;
+}
+
+.pagination{
+    display: inline-block;
+    padding-left:10px;
+
+}
+
 #trade {
     width: 50%;
     margin: 10px auto 20px;
@@ -208,6 +223,11 @@ li a:hover:not(.active) {
     clear: both;
 }
 
+
+#trade:disabled{
+    background: #fd0000;
+
+}
 #welcome .inputs #trade:hover {
     background: -moz-linear-gradient(
             top,

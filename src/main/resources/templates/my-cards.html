@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cards</title>
-    <div  th:insert="~{fragments/headerinc-dashboard :: head}"></div>
+    <div th:insert="~{fragments/headerinc-dashboard :: head}"></div>
 </head>
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>
-    <h1>Moje karty</h1>
-    <div class="dashboard">
-        <h4>Ilość kart</h4>
-        <p th:text="${howMany}"></p>
-        <div class="cards" th:if="${cards!=null}">
-            <div  th:each="card:${cards}">
-               <!-- <h2 th:text="${card.rarity}"></h2>-->
-                <img th:src="${card.imageUrl}" >
-            </div>
+<h1>Moje karty</h1>
+
+<div class="dashboard">
+    <div class="cards" th:each="card, iStat : ${cardPage.content}"
+         th:style="${iStat.odd}? 'font-weight: bold;'"
+         th:alt-title="${iStat.even}? 'even' : 'odd'">
+        <img th:src="${card.imageUrl}"/>
+    </div>
+    <div class="pages">
+        <div th:if="${cardPage.totalPages &gt; 0}" class="pagination"
+             th:each="pageNumber : ${pageNumbers}">
+            <a th:href="@{/my-cards(size=${cardPage.size}, page=${pageNumber})}"
+               th:text=${pageNumber}
+               th:class="${pageNumber==cardPage.number + 1} ? active"></a>
         </div>
     </div>
+
 </div>
 
 </body>
