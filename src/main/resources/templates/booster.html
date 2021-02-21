@@ -10,7 +10,7 @@
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>
 <h1>Kup Booster</h1>
-<div id="my-background">
+<div id="booster-background">
 
             <h4>Trener:</h4>
             <p th:text="${model.name}"></p>
@@ -22,17 +22,19 @@
     <form action="/booster" method="post" id="signin">
             <input type="submit" value="KUP BOOSTER 5 KART ZA 100" class="button">
         </form>
-</div>
-    </div>
 
-    <div class="booster" th:if="${boughtBooster!=null}">
-        <div class="card">
-        <div th:each="card:${boughtBooster}">
+    <div class="grid-wrapper" th:if="${boughtBooster!=null}">
+
+        <div class="card" th:each="card:${boughtBooster}">
 
             <img th:src="${card.imageUrl}">
         </div>
-        </div>
+
     </div>
+</div>
+    </div>
+
+
 
 
 </div>

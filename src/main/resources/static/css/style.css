@@ -75,6 +75,7 @@ p {
 }
 
 #welcome {
+    width:300px;
     max-width:700px;
     margin:auto;
     padding: 0 25px 25px;
@@ -88,7 +89,7 @@ p {
     display: table;
     position: static;
 }
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 800px){
     #welcome  {
         width: 60vw;
     }
@@ -264,6 +265,10 @@ input:-moz-placeholder {
         linear, left top, left bottom,
         from(#a4b0cb),
         to(#b9c5dd));
+}
+
+#my-background > img {
+    width:20vw;
 }
 
 
