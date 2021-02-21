@@ -5,18 +5,23 @@
     <title>My Cards</title>
     <div th:insert="~{fragments/headerinc-dashboard :: head}"></div>
 </head>
+
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>
 <h1>Moje karty</h1>
-
-<div class="dashboard">
-    <div class="booster" th:each="card, iStat : ${cardPage.content}"
+<div id="cards-background">
+    <div class="grid-wrapper">
+        <div class="card" th:each="card, iStat : ${cardPage.content}"
          th:style="${iStat.odd}? 'font-weight: bold;'"
          th:alt-title="${iStat.even}? 'even' : 'odd'">
-        <div class="card">
+            <div class="ilosc">
+                <p>Ilość kart</p>
+                <label th:text="${card.amount}"></label>
+            </div>
         <img th:src="${card.imageUrl}"/>
-        </div>
     </div>
+    </div>
+    <div id="paging">
     <div class="pages">
         <div th:if="${cardPage.totalPages &gt; 0}" class="pagination"
              th:each="pageNumber : ${pageNumbers}">
@@ -25,8 +30,7 @@
                th:class="${pageNumber==cardPage.number + 1} ? active"></a>
         </div>
     </div>
-
+    </div>
 </div>
-
 </body>
 </html>

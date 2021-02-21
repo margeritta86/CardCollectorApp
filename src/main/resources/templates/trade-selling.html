@@ -10,27 +10,35 @@
 
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>
-<h1>Moje karty</h1>
-<div class="dashboard">
-    <div class="booster" th:if="${cards!=null}">
-        <div th:each="card:${cards.keySet()}">
-            <div class="card">
-                <img th:src="${card.imageUrl}">
-                <form>
-                    <div>
-                        <label>Ilość</label>
-                        <input type="number" th:placeholder="${'max '+cards.get(card)}">
-                    </div>
-                    <div>
+<h1>Wystaw Moje Karty</h1>
+<div id="cards-background">
+<div class="grid-wrapper">
+    <div class="card" th:if="${cards!=null}" th:each="card, iStat : ${cards.content}">
 
-                        <label>Cena</label>
-                        <input type="number" placeholder="Twoja cena">
+                <img th:src="${card.imageUrl}">
+                <form th:action="${'/trade-selling/'+ card.id}" method="post" id="signup" th:object="${request}">
+                    <div class="ilosc">
+                        <label>Ilość</label>
+                        <input type="number" min="1" th:max="${card.amount}"  th:field="*{howMany}" th:placeholder="${'max '+ card.amount}">
                     </div>
-                    <input type="submit" value="Wystaw" id="trade">
+                    <div class="ilosc">
+                        <label>Cena</label>
+                        <input type="number" min="1"  th:field="*{howMuch}" placeholder="Twoja cena">
+                    </div>
+                    <input type="submit" value="Wystaw" id="trade-button">
 
                 </form>
-            </div>
+
         </div>
+    </div>
+<div id="paging">
+        <div class="pages">
+            <div th:if="${cards.totalPages &gt; 0}" class="pagination"
+                 th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/trade-selling(size=${cards.size}, page=${pageNumber})}"
+                   th:text=${pageNumber}
+                   th:class="${pageNumber==cards.number + 1} ? active"></a>
+            </div>
     </div>
 </div>
 </div>

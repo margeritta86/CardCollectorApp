@@ -23,7 +23,7 @@ public class Trainer {
     private String name;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    private Map<Card, Integer> cards = new HashMap<>();
+    private Map<Card, Integer> cards = new HashMap<>(); //TODO Linked
 
     public Trainer() {
 

@@ -29,6 +29,5 @@ public class RegisterService {
         User user = new User(userRequest.getEmail(), passwordEncoder.encode(userRequest.getPassword()),trainer);
         trainerAccessService.save(trainer);
         userRepository.save(user);
-
     }
 }

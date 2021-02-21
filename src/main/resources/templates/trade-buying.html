@@ -10,10 +10,9 @@
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>
 <h1>Karty z aukcji</h1>
-<div class="dashboard">
-    <div class="booster">
-            <div class="cards" th:each="trade, iStat : ${pageData.trades.content}">
-            <div class="card" >
+<div id="cards-background">
+    <div class="grid-wrapper">
+            <div class="card" th:each="trade, iStat : ${pageData.trades.content}">
                 <img th:src="${trade.cardUrl}">
                 <form th:action="${'/trade-buying/'+ trade.tradeId}" method="post" id="signup" >
                     <div class="ilosc">
@@ -26,20 +25,22 @@
                     </div>
                     <input type="submit" th:value="${trade.yourTrade?'WYCOFAJ':'KUP'}"
                            th:disabled="${money&lt;trade.price and trade.yourTrade == false}"
-                           id="trade">
+                           id="trade-button">
                 </form>
             </div>
         </div>
-    </div>
-    <div class="pages">
-        <div th:if="${pageData.trades.totalPages &gt; 0}" class="pagination"
-             th:each="pageNumber : ${pageNumbers}">
-            <a th:href="@{/trade-buying(size=${pageData.trades.size}, page=${pageNumber})}"
-               th:text=${pageNumber}
-               th:class="${pageNumber==pageData.trades.number + 1} ? active"></a>
+    <div id="paging">
+        <div class="pages">
+            <div th:if="${pageData.trades.totalPages &gt; 0}" class="pagination"
+                 th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/trade-buying(size=${pageData.trades.size}, page=${pageNumber})}"
+                   th:text=${pageNumber}
+                   th:class="${pageNumber==pageData.trades.number + 1} ? active"></a>
+            </div>
         </div>
     </div>
-</div>
+    </div>
+
 </div>
 
 </body>

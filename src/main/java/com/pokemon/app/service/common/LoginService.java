@@ -28,7 +28,6 @@ public class LoginService implements UserDetailsService {
             return (User) object;
         }
         throw new LoginServiceException("Brak zalogowanego użytkownika. Sprawdź ustawienia Security!");
-
     }
 
     @Override
@@ -38,8 +37,6 @@ public class LoginService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Nie znaleziono!"));
 
         return user;
-
     }
-
 }
 

@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
+<!--<head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{css/style-dashboard.css}" href="/static/css/style-dashboard.css"
           rel="stylesheet" type="text/css" media="screen"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-</head>
+</head>-->
 
 
 <body>
 <div class="container">
+
     <div th:fragment="header">
-        <ul id="nav">
-            <li><a href="/my-account">Moje Konto</a></li>
+        <div class="nav-menu">
+        <ul class="nav">
+            <li class="first"><a href="/my-account">Moje Konto</a></li>
             <li><a href="/my-cards">Moje Karty</a></li>
             <li><a href="/booster">Kup Booster</a></li>
             <li><a href="/trade">Aukcja</a></li>
             <li><a href="#about">O Card Collector</a></li>
-            <li ><a id="logout" href ="#" th:href ="@{/logout}" method="post">Wyloguj</a></li>
+            <li class="last"><a id="logout" href ="#" th:href ="@{/logout}" method="post">Wyloguj</a></li>
         </ul>
+        </div>
         <div class="center">
             <img th:src="@{icons/pokeball.png}"
                  width="70">

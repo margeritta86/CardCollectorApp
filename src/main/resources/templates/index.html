@@ -4,33 +4,36 @@
     <meta charset="UTF-8">
     <title>Strona główna</title>
 
-    <div class="menu" th:insert="~{fragments/headerinc :: head}"></div>
+    <div  th:insert="~{fragments/headerinc-dashboard :: head}"></div>
 
 </head>
 <body>
-<div class="center">
+<div id="center-home">
     <img th:src="@{icons/pokeball.png}"
          width="70">
 </div>
-<div class="container">
+<div class="container" >
 
-    <div id="welcome">
-        <h1>Pokemon Card Collector</h1>
-
-        <div class="sep"></div>
+    <div id="my-background">
+        <h1 id="title">Pokemon Card Collector</h1>
 
             <img th:src="@{icons/pokemon-cards.png}"
                  width="350">
-
+<div id="home">
         <h5>Pokemon CardCollector to aplikacja, którą pokochasz! Kolekcjonuj unikatowe karty, wystawiaj je na aukcje i zdobywaj fortunę!  </h5>
-        <div class="center">
+</div>
+            <p>Posiadasz konto?</p>
+            <form action="/login" method="get">
+
+                <input type="submit" value="ZALOGUJ SIĘ" class="button">
+            </form>
             <p>Nie masz jeszcze konta? </p>
             <form action="/register" method="get" id="signin">
 
-                <input type="submit" value="Zarejestruj się" class="sign">
+                <input type="submit" value="ZAREJESTRUJ SIĘ" class="button">
             </form>
 
-        </div>
+
     </div>
 </div>
 </body>

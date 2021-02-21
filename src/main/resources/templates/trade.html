@@ -4,32 +4,31 @@
     <meta charset="UTF-8">
     <title>Trade</title>
 
-    <div  th:insert="~{fragments/headerinc :: head}"></div>
+    <div  th:insert="~{fragments/headerinc-dashboard :: head}"></div>
 
 </head>
 
 <body>
-<div class="menu" th:insert="~{fragments/header :: header}"></div>
-<h2>Aukcje</h2>
-<div class="container-booster">
-    <div id="welcome">
+<div class="container" th:insert="~{fragments/header :: header}"></div>
+<h1>Aukcje</h1>
 
-            <div class="sep"></div>
+<div id="my-background">
 
+                <h4>Co chcesz zrobić?</h4>
         <form action="/trade-selling" method="get" i>
 
-            <div class="sep"></div>
+            <input type="submit" value="WYSTAW KARTY NA AUKCJE" class="button">
 
-            <input type="submit" value="WYSTAW KARTY NA AUKCJE" class="sign">
         </form>
         <form action="/trade-buying" method="get" id="signin">
 
-            <div class="sep"></div>
+            <input type="submit" value="KUP KARTY NA AUKCJI" class="button">
 
-            <input type="submit" value="KUP KARTY NA AUKCJI" class="sign">
         </form>
 
     </div>
+
+
 
 </div>
 

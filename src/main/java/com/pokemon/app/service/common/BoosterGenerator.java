@@ -30,7 +30,7 @@ public class BoosterGenerator {
         return booster;
     }
 
-    public List<Card> generateLargeBooster(){
+    public List<Card> generateLargerBooster(){
         List<Card> booster = new ArrayList<>();
         Random random = new Random();
         List<Card> cards = cardRepository.findAll();
@@ -42,5 +42,4 @@ public class BoosterGenerator {
         }
         return booster;
     }
-
 }

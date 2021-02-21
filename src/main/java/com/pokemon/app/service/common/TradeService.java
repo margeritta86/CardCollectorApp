@@ -8,7 +8,6 @@ import com.pokemon.app.model.Trainer;
 import com.pokemon.app.repository.CardRepository;
 import com.pokemon.app.repository.TradeRepository;
 import com.pokemon.app.request.SellRequest;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -35,7 +34,6 @@ public class TradeService {
     }
 
 
-
     public void sellCards(SellRequest sellRequest) {
         Trainer trainer = trainerAccessService.getLoggedTrainerOrThrow();
         Card card = cardRepository.findById(sellRequest.getCardId()).orElseThrow(() -> new TradeServiceException("Nie odnaleziono karty"));
@@ -55,15 +53,21 @@ public class TradeService {
         Card card = trade.getCard();
         if (buyer.equals(seller)) {
             seller = buyer;
+        } else {
+            trainerAccessService.subtractMoneyFromTrainer(trade.getCardPrice());
+            seller.addMoney(trade.getCardPrice());
         }
-        trainerAccessService.subtractMoneyFromTrainer(trade.getCardPrice());
-        seller.addMoney(trade.getCardPrice());
+
+        addCardToBuyerAndDeleteTradeFromRepository(buyer, trade, card);
+    }
+
+    public void addCardToBuyerAndDeleteTradeFromRepository(Trainer buyer, Trade trade, Card card) {
         buyer.addCard(card, trade.getCardsAmount());
         tradeRepository.delete(trade);
         trainerAccessService.save(buyer);
     }
 
-    public TradePageDto getPageDto(Pageable pageable){
+    public TradePageDto getPageDto(Pageable pageable) {
         return TradePageDto.builder()
                 .trades(preparePaginatedTrades(pageable))
                 .ownedMoney(trainerAccessService
@@ -75,19 +79,19 @@ public class TradeService {
     private PageImpl<TradeDto> preparePaginatedTrades(Pageable pageable) {
         int pageSize = pageable.getPageSize();
         int currentPage = pageable.getPageNumber();
-        List<TradeDto> allTrades =getAllTradeCards();
+        List<TradeDto> allTrades = getAllTradeCards();
         int startItem = currentPage * pageSize;
 
         List<TradeDto> trades;
 
         if (allTrades.size() < startItem) {
             trades = Collections.emptyList();
-        }else{
-            int toIndex = Math.min(startItem+pageSize,allTrades.size());
-            trades = allTrades.subList(startItem,toIndex);
+        } else {
+            int toIndex = Math.min(startItem + pageSize, allTrades.size());
+            trades = allTrades.subList(startItem, toIndex);
         }
 
-       return new PageImpl<>(trades, PageRequest.of(currentPage, pageSize), allTrades.size());
+        return new PageImpl<>(trades, PageRequest.of(currentPage, pageSize), allTrades.size());
     }
 
     public List<TradeDto> getAllTradeCards() {
@@ -103,7 +107,6 @@ public class TradeService {
                         .build())
                 .collect(Collectors.toList());
     }
-
 
 
 }

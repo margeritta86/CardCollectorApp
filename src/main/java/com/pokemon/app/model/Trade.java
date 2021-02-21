@@ -19,7 +19,7 @@ public class Trade {
     private int cardPrice;
     private int cardsAmount;
 
-    @PersistenceConstructor // tak żeby nikt nie usunął tego pustego konstruktora, bo potrzebuje go hibernate
+    @PersistenceConstructor
     public Trade() {
     }
 

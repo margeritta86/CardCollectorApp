@@ -8,7 +8,6 @@ public class BuyRequest {
     public BuyRequest() {
     }
 
-
     public int getPrice() {
         return price;
     }

@@ -15,5 +15,4 @@ public class TradeDto {
     private int tradeId;
     private boolean yourTrade;
 
-
 }

@@ -9,7 +9,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String getHomepage() {
-
         return "index";
     }
 }

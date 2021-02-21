@@ -5,7 +5,6 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -96,6 +95,5 @@ public class User implements UserDetails {
     public int hashCode() {
         return Objects.hash(id);
     }
-
 
 }
