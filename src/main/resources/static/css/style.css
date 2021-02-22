@@ -47,7 +47,7 @@ p {
 
 .container {
     padding-top: 20px;
-    height: 1000px;
+    height: 70vh;
     width: 406px;
     max-width: 800px;
     margin: 0 auto;
@@ -268,7 +268,33 @@ input:-moz-placeholder {
 }
 
 #my-background > img {
-    width:20vw;
+    width:150px;
+}
+
+
+.footer {
+
+    font-size: 1.0em;
+    text-align: center;
+    color: #464646;
+    width: 100vw;
+    list-style-type: none;
+    padding:0;
+    margin:auto;
+}
+
+
+.footer > p{
+    padding:20px 0;
+    text-decoration: none;
+
+}
+
+@media only screen and (max-width: 900px) {
+    .footer > p {
+        font-size: 0.7em;
+        margin: 0;
+    }
 }
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8"  name="viewport" content="width=device-width, initial-scale=1.0">>
+    <meta charset="UTF-8"  name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rejestracja</title>
     <div th:insert="~{fragments/headerinc :: head}"></div>
 </head>
@@ -14,13 +14,9 @@
     <form action="/register" method="post" id="signup" th:object="${request}">
 
         <div class="header">
-
             <h3>Zarejestruj się</h3>
-
             <p>Uzupełnij pola, aby się zarejestrować</p>
-
         </div>
-
 
         <div class="inputs">
 
@@ -37,6 +33,8 @@
 
     </form>
 </div>
+
+<div th:insert="~{fragments/footer :: footer}"></div>
 </body>
 </html>
 

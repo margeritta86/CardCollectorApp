@@ -15,16 +15,16 @@
         <p th:text="${model.money}"></p>
 
         <div class="sep"></div>
-        <div class="information">
+
             <h4>E-mail</h4>
             <p th:text="${model.email}"></p>
             <h4>Data rejestracji</h4>
             <p th:text="${model.registerTime}"></p>
             <h4>Dni od rejestracji</h4>
             <p th:text="${model.daysAfterRegistration}"></p>
-        </div>
+
     </div>
 </div>
-
+<div th:insert="~{fragments/footer :: footer}"></div>
 </body>
 </html>

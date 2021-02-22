@@ -10,6 +10,7 @@
 <body>
 <div class="container" th:insert="~{fragments/header :: header}"></div>
 <h1>Karty z aukcji</h1>
+<p th:text="${money}"></p>
 <div id="cards-background">
     <div class="grid-wrapper">
             <div class="card" th:each="trade, iStat : ${pageData.trades.content}">
@@ -24,7 +25,7 @@
                         <p th:text="${trade.trainer}"></p>
                     </div>
                     <input type="submit" th:value="${trade.yourTrade?'WYCOFAJ':'KUP'}"
-                           th:disabled="${money&lt;trade.price and trade.yourTrade == false}"
+                           th:disabled="${trade.price > pageData.ownedMoney}"
                            id="trade-button">
                 </form>
             </div>
@@ -42,6 +43,6 @@
     </div>
 
 </div>
-
+<div th:insert="~{fragments/footer :: footer}"></div>
 </body>
 </html>

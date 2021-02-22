@@ -3,9 +3,11 @@ package com.pokemon.app.controller;
 import com.pokemon.app.dto.CardDto;
 import com.pokemon.app.dto.TradeDto;
 import com.pokemon.app.dto.TradePageDto;
+import com.pokemon.app.request.BuyRequest;
 import com.pokemon.app.request.SellRequest;
 import com.pokemon.app.service.common.TradeService;
 import com.pokemon.app.service.common.TrainerAccessService;
+import org.apache.logging.log4j.util.Base64Util;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -72,6 +74,7 @@ public class TradeController {
         TradePageDto pageData = tradeService.getPageDto(PageRequest.of(currentPage - 1, pageSize));
         PageImpl<TradeDto> trades = pageData.getTrades();
         model.addAttribute("pageData", pageData);
+
 
         int totalPages = trades.getTotalPages();
 

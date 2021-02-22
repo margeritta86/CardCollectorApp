@@ -270,7 +270,7 @@ label {
 }
 
 #my-background {
-    width: 300px;
+    width: 500px;
     margin: auto auto 500px;
     padding: 20px 40px 50px;
     background: #fff;
@@ -335,7 +335,6 @@ form{
 }
 
 #home {
-    width: 360px;
     margin: auto;
 
 }
@@ -369,7 +368,7 @@ input[type=number] {
 }
 
 #booster-background {
-    width:70vw;
+    width:40vw;
     max-width: 800px;
     margin: auto auto 500px;
     padding: 20px 20px 50px;
@@ -383,3 +382,33 @@ input[type=number] {
     text-align: center;
 
 }
+
+#my-background > img {
+    width:70%;
+}
+
+
+.footer {
+
+    font-size: 1.0em;
+    text-align: center;
+    color: #464646;
+    width: 100vw;
+    list-style-type: none;
+    padding:0;
+}
+
+.footer > p {
+    padding:20px 0;
+    text-decoration: none;
+
+}
+
+@media only screen and (max-width: 900px) {
+    .footer > p {
+        font-size: 0.7em;
+        margin: 0;
+    }
+}
+
+
