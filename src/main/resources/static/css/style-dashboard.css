@@ -300,9 +300,9 @@ form{
 }
 
 .button {
-    width: 200px;
+    width: fit-content;
     margin: 10px auto 20px;
-    padding: 15px 0;
+    padding: 15px 10px;
     color: #fff;
     font-size: 0.7em;
     font-weight: 500;
@@ -332,6 +332,12 @@ form{
     display: table;
     position: static;
     clear: both;
+}
+@media only screen and (max-width: 400px) {
+    .button {
+        font-size: 0.5em;
+        padding:10px 5px;
+    }
 }
 
 #home {
@@ -368,7 +374,7 @@ input[type=number] {
 }
 
 #booster-background {
-    width:40vw;
+    width:70vw;
     max-width: 800px;
     margin: auto auto 500px;
     padding: 20px 20px 50px;
